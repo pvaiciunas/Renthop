@@ -1,3 +1,8 @@
+library(jsonlite)
+library(xgboost)
+library(purrr)
+library(dplyr)
+
 
 # Train data
 train_data <- fromJSON(file.choose())
@@ -32,9 +37,9 @@ processed_test[word_features] = NULL
 train_X = processed_train
 train_X$interest_level = NULL
 train_y = processed_train$interest_level
-train_y[train_y == "low"] = -1
-train_y[train_y == "medium"] = 0
-train_y[train_y == "high"] = 1
+train_y[train_y == "low"] = 0
+train_y[train_y == "medium"] = 1
+train_y[train_y == "high"] = 2
 
 # Create processed X data for test data
 test_X = processed_test
@@ -61,4 +66,4 @@ pred_matrix = matrix(pred, nrow = nrow(test_data), byrow = TRUE)
 pred_submission = cbind(test_data$listing_id, pred_matrix)
 colnames(pred_submission) = c("listing_id", "low", "medium", "high")
 pred_df = as.data.frame(pred_submission)
-write.csv(pred_df, "second_submission.csv", row.names = FALSE)
+write.csv(pred_df, "first_submission.csv", row.names = FALSE)
