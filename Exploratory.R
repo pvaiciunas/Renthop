@@ -61,7 +61,7 @@ good_features <- c("24",
                    "fireplace",
                    "brick",
                    "gym",
-                   "granite",
+                   "granite"
                    )
 
 
@@ -75,12 +75,19 @@ good_features <- unique(good_features)
 
 
 # Maybe try counting the most common incidences of a word in each class? no phrases, just the word.
+# Build off the unique_features list and break it all out into individual words
+
+# full list of unique words, not full features:
+unique_features_words <- unlist(strsplit(unique_features, " "))
+unique_features_words <- unique(tolower(unique_features_words))
 
 
-
-
-
-
+# Do the same for the description words
+unique_description_words <- unlist(strsplit(train_data$description, " "))
+unique_description_words <- unique(tolower(unique_description_words))
+  
+# now count the occurrence of each of these words in the rnakings and see
+# if you should include their existence as a new feature.
 
 
 
