@@ -21,3 +21,69 @@ unique_features <- sort(unique_features$features)
 mean(nchar(unique_features))
 
 # Manually create a corpus of good words
+good_features <- c("24",
+                   "free",
+                   "laundry",
+                   "marble",
+                   "sun",
+                   "concierge",
+                   "lobby",
+                   "doorman",
+                   "doormen",
+                   "fitness",
+                   "train",
+                   "backyard",
+                   "roof",
+                   "a/c",
+                   "conditioning",
+                   "value",
+                   "full service",
+                   "luxury",
+                   "closets",
+                   "included",
+                   "terrace",
+                   "parking",
+                   "garage",
+                   "billiards",
+                   "dishwasher",
+                   "balcony",
+                   "balconies",
+                   "storage",
+                   "bbq",
+                   "big",
+                   "brand new",
+                   "hardwood",
+                   "built-in",
+                   "central",
+                   "children",
+                   "close",
+                   "complimentary",
+                   "fireplace",
+                   "brick",
+                   "gym",
+                   "granite",
+                   )
+
+
+bad_features <- c("convertible",
+                  "flex",
+                  "guarantors",
+                  "")
+#% MAke sure you didn't duplicate
+good_features <- unique(good_features)
+
+
+
+# Maybe try counting the most common incidences of a word in each class? no phrases, just the word.
+
+
+
+
+
+
+
+
+
+
+
+
