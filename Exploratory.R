@@ -3,3 +3,21 @@
 # Want to take a look at the occurrence of certain descriptors and their 
 # correlation with the three rankings
 
+# This pulls out all the unique feautres
+unique_features <- as.data.frame(unlist(train_data$features), stringsAsFactors = FALSE)
+names(unique_features) = "features"
+unique_features <- as.data.frame(unique(tolower(unique_features$features)), stringsAsFactors = FALSE)
+names(unique_features) = "features"
+
+# Check out the features:
+unique_features <- sort(unique_features$features)
+
+# There are some really screwy ones that are very long composed of multiple descriptors
+# These are likely unique to a single rental. Ignore these for now, but mayeb use them later
+# and look for specific words within longer descriptions for the count total in the 
+# eventual feature
+ 
+# The average description is a little shy of 30 characters
+mean(nchar(unique_features))
+
+# Manually create a corpus of good words
